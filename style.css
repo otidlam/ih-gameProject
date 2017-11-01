@@ -7,7 +7,7 @@ div {
 
 /* starting css */
 
-.game {
+.home {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -46,6 +46,20 @@ div {
   /*border-color: rgba(206, 81, 4, 50%);*/
 }
 
+.game {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  /*background-image: url("images/cartoonFight.jpg");*/
+  /*background-size: cover;*/
+  /*background-repeat: no-repeat;*/
+  /*delete this before the demo*/
+  border: 1px solid black;
+}
+
 .tittle {
   font-size: 150%;
   text-align: center;
@@ -54,8 +68,17 @@ div {
 }
 
 .totalUnits {
-  width: 90%;
+  width: 100%;
   height: 33%;
+  display: flex;
+  flex-direction: row;
+  /*delete this before the demo*/
+  border: 1px solid black;
+}
+
+.triImage, .unitsRemain, .cdown {
+  width: 33%;
+  height: 20%;
   /*delete this before the demo*/
   border: 1px solid black;
 }
@@ -65,22 +88,22 @@ div {
   height: 33%;
   /*delete this before the demo*/
   border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
 }
 
-.triImage {
+.soldier, .archer, .cavalier {
   width: 33%;
-  /*delete this before the demo*/
-  border: 1px solid black;
+  flex-direction: column;
+  align-content: center;
 }
 
-.unitsRemain {
-  width: 33%;
-  /*delete this before the demo*/
-  border: 1px solid black;
-}
-
-.cdown {
-  width: 33%;
-  /*delete this before the demo*/
-  border: 1px solid black;
+.ready {
+  text-align: center;
+  border-radius: 4px;
+  margin: 1%;
+  background-color: white;
+  color: Darkblue;
+  padding: 1%;
 }

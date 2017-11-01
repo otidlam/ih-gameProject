@@ -4,24 +4,24 @@
 function createPage() {
 
   var gameDiv = document.createElement("div"); //create the div containing game.
-  gameDiv.className = "game";
+  gameDiv.className = "home";
   document.body.appendChild(gameDiv);
 
   var tittle = document.createElement("div");
   tittle.className = "wannaPlay";
   tittle.innerText = "Soldiers Archers Chivalry";
-  document.getElementsByClassName("game")[0].appendChild(tittle);
+  document.getElementsByClassName("home")[0].appendChild(tittle);
 
   var playBtn = document.createElement("btn");
   playBtn.className = "gameStart";
   playBtn.innerText = "Play Soldiers Archers Chivalry";
-  document.getElementsByClassName("game")[0].appendChild(playBtn);
+  document.getElementsByClassName("home")[0].appendChild(playBtn);
   document.getElementsByClassName("gameStart")[0].addEventListener("click", organization);
 
   var instructionsDiv = document.createElement("div");
   instructionsDiv.className = "instructions";
   instructionsDiv.innerHTML = "Instructions <br> 1) Start the game <br>2) Distribuite your troops<br>3) Try to win!<br>Tip: Soldiers are strong vs Chivalry, Chivalry is strong vs Archers and Archers are strong vs Soldiers. Being strong doesn't grant an automatically win!";
-  document.getElementsByClassName("game")[0].appendChild(instructionsDiv);
+  document.getElementsByClassName("home")[0].appendChild(instructionsDiv);
 }
 
 // organization state
@@ -36,6 +36,7 @@ function organization() {
   // document.getElementsByClassName("game").remove();
   var createGame = document.createElement("div");
   createGame.className = "game";
+  createGame.innerText = "game div";
   document.body.appendChild(createGame);
 
 

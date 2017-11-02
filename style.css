@@ -16,23 +16,27 @@ div {
   background-size: cover;
   /*background-size: 75%;*/
   background-repeat: no-repeat;
+  justify-content: center;
 }
 
 .wannaPlay {
+  font-size: 400%;
   background-color: cyan;
-  margin: 10%;
+  margin: 5% 20%;
   color: red;
   text-align: center;
+  height: 20%;
+  width: 60%;
 }
 
 .gameStart {
   font-size: 150%;
   border: 2px solid blue;
-  margin: 0 30%;
+  margin: 0 35%;
   padding: 2%;
   text-align: center;
   background-color: red;
-  flex-grow:
+  width: 30%;
 }
 
 .instructions {
@@ -49,6 +53,7 @@ div {
 .game {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-content: space-around;
   width: 100%;
   height: 100%;
@@ -61,15 +66,21 @@ div {
 }
 
 .tittle {
-  font-size: 150%;
+  font-size: 200%;
+  margin: 5% 15%;
+  width: 70%;
+  height: 20%;
   text-align: center;
   /*delete this before the demo*/
   border: 1px solid black;
 }
 
 .totalUnits {
-  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
   height: 33%;
+  margin: 0% 5%;
   display: flex;
   flex-direction: row;
   /*delete this before the demo*/
@@ -79,11 +90,13 @@ div {
 .triImage, .unitsRemain, .cdown {
   width: 33%;
   height: 20%;
+  margin: 5%;
   /*delete this before the demo*/
   border: 1px solid black;
 }
 
 .allBattalions {
+  margin: 0% 5%;
   width: 90%;
   height: 33%;
   /*delete this before the demo*/
@@ -94,16 +107,58 @@ div {
 }
 
 .soldier, .archer, .cavalier {
-  width: 33%;
+  margin: 5% 5% 0 5%;
+  width: 20%;
   flex-direction: column;
   align-content: center;
+  /*delete this before the demo*/
+  border: 1px solid black;
 }
 
-.ready {
+.ready, .gameOver, .retry {
   text-align: center;
   border-radius: 4px;
   margin: 1%;
   background-color: white;
   color: Darkblue;
   padding: 1%;
+  /*delete this before the demo*/
+  border: 1px solid black;
 }
+
+.enemy, .player {
+  display: flex;
+  flex-direction: row;
+  /*delete this before the demo*/
+  border: 1px solid black;
+}
+
+.score {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /*delete this before the demo*/
+  border: 1px solid black;
+}
+
+.result {
+  /*delete this before the demo*/
+  border: 1px solid black;
+}
+
+.final {
+  /*delete this before the demo*/
+  border: 1px solid black;
+}
+
+.looser {
+  /*delete this before the demo*/
+  border: 1px solid black;
+}
+
+.winner {
+  /*delete this before the demo*/
+  border: 1px solid black;
+}
+
+/*toDo all class of battle and gameOver*/

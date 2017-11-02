@@ -1,7 +1,7 @@
 'use strict';
 
 function Game() {
-
+  this.myLogic = new Logic();
 }
 
 Game.prototype.home = function() {
@@ -35,6 +35,7 @@ Game.prototype.home = function() {
 };
 
 Game.prototype.organization = function() {
+  var self = this;
   var removeGame = document.getElementsByClassName("home"); // creating a var to delete the game to recreate it with the next step
 
   while (removeGame[0]) {
@@ -85,27 +86,47 @@ Game.prototype.organization = function() {
   soldiers.className = "soldier";
   document.getElementsByClassName("allBattalions")[0].appendChild(soldiers);
   soldiers.innerText = "soldiers";
-  soldiers.innerHTML = "<input type='number' min='5' max='90'>";
+  soldiers.innerHTML = "<input type='number' name='soldiers' min='5' max='90'>";
 
   var archers = document.createElement("div");
   archers.className = "archer";
   document.getElementsByClassName("allBattalions")[0].appendChild(archers);
   archers.innerText = "archers";
-  archers.innerHTML = "<input type='number' min='5' max='90'>";
+  archers.innerHTML = "<input type='number' name='archers' min='5' max='90'>";
 
 
   var cavaliers = document.createElement("div");
   cavaliers.className = "cavalier";
   document.getElementsByClassName("allBattalions")[0].appendChild(cavaliers);
   cavaliers.innerText = "cavaliers";
-  cavaliers.innerHTML = "<input type='number' min='5' max='90'>";
+  cavaliers.innerHTML = "<input type='number' name='cavaliers' min='5' max='90'>";
 
   //Button to Battle!
   var readyBtn = document.createElement('btn');
   readyBtn.className = "ready";
   readyBtn.innerText = "Ready";
   document.getElementsByClassName("game")[0].appendChild(readyBtn);
-  document.getElementsByClassName("ready")[0].addEventListener("click", Game.prototype.battle);
+  document.getElementsByClassName("ready")[0].addEventListener("click", function() {
+    self. ? FUNCIONNUEVA /*pasa valores a this.myLogics*/ ;
+    self.battle();
+  });
+
+
+
+  //is it right????????????????????????????????????????????????????
+  var playerSoldiers = document.getElementsByClassName('soldier')[0];
+
+  var playerArchers = document.getElementsByClassName('archer')[0];
+
+  var playerCavaliers = document.getElementsByClassName('cavalier')[0].value; //mirar si necesita ()
+
+
+
+
+
+
+
+
 
 };
 

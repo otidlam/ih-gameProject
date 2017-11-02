@@ -1,10 +1,10 @@
 // 'use strict';
 
 function Logics() {
-  this.unitsLeft;
-  this.soldiers;
-  this.archers;
-  this.cavaliers;
+  this.unitsLeft = null;
+  this.soldiers = null;
+  this.archers = null;
+  this.cavaliers = null;
   // var unitsLeft = 100 - soldiers - archers - cavaliers;
 }
 
@@ -20,6 +20,8 @@ Logics.prototype.distribuite = function(soldiers, archers, cavaliers) {
   this.archers = archers;
   this.cavaliers = cavaliers;
 };
+var followResults = [];
+var battleResults = 0;
 
 Logics.prototype.confrontation = function(player, ai) {
   var playerNumber = player.number;
@@ -44,19 +46,22 @@ Logics.prototype.confrontation = function(player, ai) {
         playerNumber *= 1.5;
       }
     }
-  }
-  if (playerNumber < aiNumber) {
-    battleResults -= 1;
-    return 'lose';
-  } else if (playerNumber > aiNumber) {
-    battleResults += 1;
-    return 'win';
-  } else {
-    return 'tie';
-  }
+    if (playerNumber < aiNumber) {
+      battleResults -= 1;
+      // Game.getElementsByClassName('result')[0].style.backgroundColor = red;
+      followResults.push("lose");
+    } else if (playerNumber > aiNumber) {
+      battleResults += 1;
+      // Game.getElementsByClassName('result')[0].style.backgroundColor = green;
+      followResults.push('win');
+    } else {
+      // Game.getElementsByClassName('result')[0].style.backgroundColor = grey;
+      followResults.push('tie');
+    }
 
+  }
 };
-var battleResults = 0;
+
 Logic.prototype.score = function() {
 
 };

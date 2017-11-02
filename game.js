@@ -118,20 +118,20 @@ Game.prototype.battle = function() {
 
   var createGame = document.createElement("div");
   createGame.className = "game";
-  createGame.innerText = "game div";
+  // createGame.innerText = "game div";
   document.body.appendChild(createGame);
 
   // createGame should contain 4 more divs
   // 1
   var enemyDiv = document.createElement('div');
   enemyDiv.className = "enemy";
-  enemyDiv.innerText = "enemyDiv!";
+  // enemyDiv.innerText = "enemyDiv!";
   document.getElementsByClassName("game")[0].appendChild(enemyDiv);
   //enemyDiv should contain 2 divs
   // 1.1
   var enemyTroops = document.createElement('div');
   enemyTroops.className = "battalions";
-  enemyTroops.innerText = "enemyTroopsContainer!";
+  // enemyTroops.innerText = "enemyTroopsContainer!";
   document.getElementsByClassName("enemy")[0].appendChild(enemyTroops);
   //enemyTroops should contain 3 divs with the Vikings troops
   //toDo

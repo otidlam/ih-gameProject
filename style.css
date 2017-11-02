@@ -137,26 +137,43 @@ div {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin: 5%;
   /*delete this before the demo*/
   border: 1px solid black;
 }
 
 .result {
+  margin: 1.5%;
   /*delete this before the demo*/
   border: 1px solid black;
 }
 
 .final {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  background-color: cyan;
   /*delete this before the demo*/
   border: 1px solid black;
 }
 
-.looser {
+.loser {
+  display: flex;
+  background-color: red;
+  height: 10%;
+  width: 20%;
+  margin: 2%;
   /*delete this before the demo*/
   border: 1px solid black;
 }
 
 .winner {
+  display: flex;
+  margin: 10%;
+  background-color: red;
+  height: 70%;
+  width: 90%;
   /*delete this before the demo*/
   border: 1px solid black;
 }

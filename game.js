@@ -158,6 +158,7 @@ Game.prototype.battle = function() {
   //1.1.1 soldier
   var vSoldiers = document.createElement('div');
   vSoldiers.className = "soldier";
+  vSoldiers.innerHTML = "<img src='images/vLancer.jpg'>";
   vSoldiers.innerText = self.myLogic.aiSoldiers;
   document.getElementsByClassName("enemy")[0].appendChild(vSoldiers);
   //1.1.2 archer
@@ -201,6 +202,12 @@ Game.prototype.battle = function() {
   soldierButton.className = "soldierBtn";
   soldierButton.innerText = "Hastae up!";
   document.getElementsByClassName("soldier")[1].appendChild(soldierButton);
+  document.getElementsByClassName("soldierBtn")[0].addEventListener("click", function() {
+    self.myLogic.confrontation('soldier');
+    console.log(self.myLogic.battleResult);
+
+
+  });
 
   //3.1.2 archer
   var rArchers = document.createElement('div');
@@ -211,7 +218,11 @@ Game.prototype.battle = function() {
   archerButton.className = "archerBtn";
   archerButton.innerText = "Arcus up!";
   document.getElementsByClassName("archer")[1].appendChild(archerButton);
+  document.getElementsByClassName("archerBtn")[0].addEventListener("click", function() {
+    self.myLogic.confrontation('archer');
+    console.log(self.myLogic.battleResult);
 
+  });
 
 
 
@@ -226,6 +237,10 @@ Game.prototype.battle = function() {
   cavalierButton.className = "cavalierBtn";
   cavalierButton.innerText = "Spathas up!";
   document.getElementsByClassName("cavalier")[1].appendChild(cavalierButton);
+  document.getElementsByClassName("cavalierBtn")[0].addEventListener("click", function() {
+    self.myLogic.confrontation('cavalier');
+    console.log(self.myLogic.battleResult);
+  });
 
 
 
@@ -266,7 +281,9 @@ Game.prototype.battle = function() {
   gameOverBtn.className = "retry";
   gameOverBtn.innerText = "Wanna try again?";
   document.getElementsByClassName("game")[0].appendChild(gameOverBtn);
-  document.getElementsByClassName("retry")[0].addEventListener("click", self.gameOver);
+  document.getElementsByClassName("retry")[0].addEventListener("click", function() {
+    self.gameOver();
+  });
 
 
 
@@ -300,6 +317,7 @@ Game.prototype.gameOver = function() {
   retryBtn.className = "retry";
   retryBtn.innerText = "Wanna try again?";
   document.getElementsByClassName("final")[0].appendChild(retryBtn);
-  document.getElementsByClassName("retry")[0].addEventListener("click", self.home);
-
+  document.getElementsByClassName("retry")[0].addEventListener("click", function() {
+    self.home();
+  });
 };

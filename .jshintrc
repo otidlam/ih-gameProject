@@ -1,1 +1,5 @@
-{"browser" : true}
+{"browser" : true,
+  "globals": {
+    "console":true
+  }
+}

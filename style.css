@@ -178,6 +178,11 @@ div {
   border: 1px solid black;
 }
 
-.soldierBtn, .archerBtn, .cavalierBtn {}
+.soldierBtn, .archerBtn, .cavalierBtn {
+  background-color: yellow;
+  /*delete this before the demo*/
+  border: 1px solid black;
+  1border-radius: 20px;
+}
 
 /*toDo all class of battle and gameOver*/

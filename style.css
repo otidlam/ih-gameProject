@@ -178,4 +178,6 @@ div {
   border: 1px solid black;
 }
 
+.soldierBtn, .archerBtn, .cavalierBtn {}
+
 /*toDo all class of battle and gameOver*/

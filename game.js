@@ -1,10 +1,12 @@
 'use strict';
 
 function Game() {
-  this.myLogic = new Logic();
+  this.myLogic = new Logics();
+  this.myLogic.init();
 }
 
 Game.prototype.home = function() {
+  var self = this;
   if (document.getElementsByClassName('final')) {
     var removeGame = document.getElementsByClassName("final"); // creating a var to delete the game to recreate it with the next step
 
@@ -26,7 +28,9 @@ Game.prototype.home = function() {
   playBtn.className = "gameStart";
   playBtn.innerText = "Play Soldiers Archers Cavaliers";
   document.getElementsByClassName("home")[0].appendChild(playBtn);
-  document.getElementsByClassName("gameStart")[0].addEventListener("click", Game.prototype.organization);
+  document.getElementsByClassName("gameStart")[0].addEventListener("click", function() {
+    self.organization();
+  });
 
   var instructionsDiv = document.createElement("div");
   instructionsDiv.className = "instructions";
@@ -86,20 +90,20 @@ Game.prototype.organization = function() {
   soldiers.className = "soldier";
   document.getElementsByClassName("allBattalions")[0].appendChild(soldiers);
   soldiers.innerText = "soldiers";
-  soldiers.innerHTML = "<input type='number' name='soldiers' min='5' max='90'>";
+  soldiers.innerHTML = "<input id='inputSoldiers' type='number' name='soldiers' min='5' max='90'>";
 
   var archers = document.createElement("div");
   archers.className = "archer";
   document.getElementsByClassName("allBattalions")[0].appendChild(archers);
   archers.innerText = "archers";
-  archers.innerHTML = "<input type='number' name='archers' min='5' max='90'>";
+  archers.innerHTML = "<input type='number' id= 'inputArchers' name='archers' min='5' max='90'>";
 
 
   var cavaliers = document.createElement("div");
   cavaliers.className = "cavalier";
   document.getElementsByClassName("allBattalions")[0].appendChild(cavaliers);
   cavaliers.innerText = "cavaliers";
-  cavaliers.innerHTML = "<input type='number' name='cavaliers' min='5' max='90'>";
+  cavaliers.innerHTML = "<input type='number' id= 'inputCavaliers' name='cavaliers' min='5' max='90'>";
 
   //Button to Battle!
   var readyBtn = document.createElement('btn');
@@ -107,22 +111,16 @@ Game.prototype.organization = function() {
   readyBtn.innerText = "Ready";
   document.getElementsByClassName("game")[0].appendChild(readyBtn);
   document.getElementsByClassName("ready")[0].addEventListener("click", function() {
-    self. ? FUNCIONNUEVA /*pasa valores a this.myLogics*/ ;
+    var pSoldiers = document.getElementById('inputSoldiers').value;
+
+    var pArchers = document.getElementById('inputArchers').value;
+
+    var pCavaliers = document.getElementById('inputCavaliers').value;
+
+    self.myLogic.distribuite(pSoldiers, pArchers, pCavaliers); /*pasa valores a this.myLogics*/
     self.battle();
+    // Game.prototype.battle();
   });
-
-
-
-  //is it right????????????????????????????????????????????????????
-  var playerSoldiers = document.getElementsByClassName('soldier')[0];
-
-  var playerArchers = document.getElementsByClassName('archer')[0];
-
-  var playerCavaliers = document.getElementsByClassName('cavalier')[0].value; //mirar si necesita ()
-
-
-
-
 
 
 
@@ -131,6 +129,7 @@ Game.prototype.organization = function() {
 };
 
 Game.prototype.battle = function() {
+  var self = this;
   var removeGame = document.getElementsByClassName("game"); // creating a var to delete the game to recreate it with the next step
 
   while (removeGame[0]) {
@@ -159,17 +158,17 @@ Game.prototype.battle = function() {
   //1.1.1 soldier
   var vSoldiers = document.createElement('div');
   vSoldiers.className = "soldier";
-  vSoldiers.innerText = "IA soldier";
+  vSoldiers.innerText = self.myLogic.aiSoldiers;
   document.getElementsByClassName("enemy")[0].appendChild(vSoldiers);
   //1.1.2 archer
   var vArchers = document.createElement('div');
   vArchers.className = "archer";
-  vArchers.innerText = "IA archer";
+  vArchers.innerText = self.myLogic.aiArchers;
   document.getElementsByClassName("enemy")[0].appendChild(vArchers);
   //1.1.3 cavalier
   var vCavaliers = document.createElement('div');
   vCavaliers.className = "cavalier";
-  vCavaliers.innerText = "IA cavalier";
+  vCavaliers.innerText = self.myLogic.aiCavaliers;
   document.getElementsByClassName("enemy")[0].appendChild(vCavaliers);
 
 
@@ -196,18 +195,42 @@ Game.prototype.battle = function() {
   //3.1.1 soldier
   var rSoldiers = document.createElement('div');
   rSoldiers.className = "soldier";
-  rSoldiers.innerText = "playerSOldiers";
+  rSoldiers.innerText = self.myLogic.soldiers;
   document.getElementsByClassName("player")[0].appendChild(rSoldiers);
+  var soldierButton = document.createElement('btn');
+  soldierButton.className = "soldierBtn";
+  soldierButton.innerText = "Hastae up!";
+  document.getElementsByClassName("soldier")[1].appendChild(soldierButton);
+
   //3.1.2 archer
   var rArchers = document.createElement('div');
   rArchers.className = "archer";
-  rArchers.innerText = "playerArchers";
+  rArchers.innerText = self.myLogic.archers;
   document.getElementsByClassName("player")[0].appendChild(rArchers);
+  var archerButton = document.createElement('btn');
+  archerButton.className = "archerBtn";
+  archerButton.innerText = "Arcus up!";
+  document.getElementsByClassName("archer")[1].appendChild(archerButton);
+
+
+
+
+
+
   //3.1.3 cavalier
   var rCavaliers = document.createElement('div');
-  rCavaliers.className = "soldier";
-  rCavaliers.innerText = "playerCavaliers";
+  rCavaliers.className = "cavalier";
+  rCavaliers.innerText = self.myLogic.cavaliers;
   document.getElementsByClassName("player")[0].appendChild(rCavaliers);
+  var cavalierButton = document.createElement('btn');
+  cavalierButton.className = "cavalierBtn";
+  cavalierButton.innerText = "Spathas up!";
+  document.getElementsByClassName("cavalier")[1].appendChild(cavalierButton);
+
+
+
+
+
 
   //3.2
   var goBtn = document.createElement('btn');
@@ -243,7 +266,7 @@ Game.prototype.battle = function() {
   gameOverBtn.className = "retry";
   gameOverBtn.innerText = "Wanna try again?";
   document.getElementsByClassName("game")[0].appendChild(gameOverBtn);
-  document.getElementsByClassName("retry")[0].addEventListener("click", Game.prototype.gameOver);
+  document.getElementsByClassName("retry")[0].addEventListener("click", self.gameOver);
 
 
 
@@ -251,6 +274,7 @@ Game.prototype.battle = function() {
 };
 
 Game.prototype.gameOver = function() {
+  var self = this;
   var removeGame = document.getElementsByClassName("game"); // creating a var to delete the game to recreate it with the next step
 
   while (removeGame[0]) {
@@ -276,11 +300,6 @@ Game.prototype.gameOver = function() {
   retryBtn.className = "retry";
   retryBtn.innerText = "Wanna try again?";
   document.getElementsByClassName("final")[0].appendChild(retryBtn);
-  document.getElementsByClassName("retry")[0].addEventListener("click", Game.prototype.home);
-
-
+  document.getElementsByClassName("retry")[0].addEventListener("click", self.home);
 
 };
-
-var myGame = new Game();
-myGame.home();

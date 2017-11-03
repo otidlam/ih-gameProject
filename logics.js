@@ -5,6 +5,11 @@ function Logics() {
   this.soldiers = null;
   this.archers = null;
   this.cavaliers = null;
+  this.aiSoldiers = null;
+  this.aiArchers = null;
+  this.aiCavaliers = null;
+
+
   // var unitsLeft = 100 - soldiers - archers - cavaliers;
 }
 
@@ -13,13 +18,19 @@ Logics.prototype.init = function() {
   this.soldiers = 0;
   this.archers = 0;
   this.cavaliers = 0;
+  this.aiSoldiers = 40;
+  this.aiArchers = 30;
+  this.aiCavaliers = 30;
 };
 
 Logics.prototype.distribuite = function(soldiers, archers, cavaliers) {
   this.soldiers = soldiers;
   this.archers = archers;
   this.cavaliers = cavaliers;
+
 };
+
+
 var followResults = [];
 var battleResults = 0;
 
@@ -62,131 +73,14 @@ Logics.prototype.confrontation = function(player, ai) {
   }
 };
 
-Logic.prototype.score = function() {
-
+Logics.prototype.score = function() {
+  for (var ix = 0; ix < followResults.lenght; ix++) {
+    if (followResults[ix] === 'win') {
+      myLogic.getElementsByClassName('result')[ix].style.backgroundColo = 'green';
+    } else if (followResults[ix] === 'lose') {
+      myLogic.getElementsByClassName('result')[ix].style.backgroundColo = 'red';
+    } else {
+      myLogic.getElementsByClassName('result')[ix].style.backgroundColo = 'gr ey';
+    }
+  }
 };
-
-// switch ( /* don't know what expression*/ ) {
-//   case 1 /*soldiers vs soldiers*/ :
-//     switch () {
-//       case 1 /*this.playerBattallion.number < this.aiBattallion.number*/ :
-//
-//         break;
-//       case 2 /*this.playerBattallion.number > this.aiBattallion.number*/ :
-//
-//         break;
-//       case 3 /*this.playerBattallion.number = this.aiBattallion.number*/ :
-//
-//         break;
-//     }
-//     break;
-//   case 2 /*soldiers vs archers*/ :
-//     switch () {
-//       case 1 /*this.playerBattallion.number < (this.aiBattallion.number*1.5)*/ :
-//
-//         break;
-//       case 2 /*this.playerBattallion.number > (this.aiBattallion.number*1.5)*/ :
-//
-//         break;
-//       case 3 /*this.playerBattallion.number = (this.aiBattallion.number*1.5)*/ :
-//
-//         break;
-//     }
-//     break;
-//   case 3 /*soldiers vs cavaliers*/ :
-//     switch () {
-//       case 1 /*(this.playerBattallion.number*1.5) < this.aiBattallion.number*/ :
-//
-//         break;
-//       case 2 /*(this.playerBattallion.number*1.5) > this.aiBattallion.number*/ :
-//
-//         break;
-//       case 3 /*(this.playerBattallion.number*1.5) = this.aiBattallion.number*/ :
-//
-//         break;
-//     }
-//     break;
-//   case 4 /* archers vs soldiers*/ :
-//     switch () {
-//       case 1 /*(this.playerBattallion.number*1.5) < this.aiBattallion.number*/ :
-//
-//         break;
-//       case 2 /*(this.playerBattallion.number*1.5) > this.aiBattallion.number*/ :
-//
-//         break;
-//       case 3 /*(this.playerBattallion.number*1.5) = this.aiBattallion.number*/ :
-//
-//         break;
-//     }
-//     break;
-//   case 5 /*archers vs archers*/ :
-//     switch () {
-//       case 1 /*this.playerBattallion.number < this.aiBattallion.number*/ :
-//
-//         break;
-//       case 2 /*this.playerBattallion.number > this.aiBattallion.number*/ :
-//
-//         break;
-//       case 3 /*this.playerBattallion.number = this.aiBattallion.number*/ :
-//
-//         break;
-//     }
-//
-//     break;
-//   case 6 /*archers vs cavaliers*/ :
-//     switch () {
-//       case 1 /*this.playerBattallion.number < (this.aiBattallion.number*1.5)*/ :
-//
-//         break;
-//       case 2 /*this.playerBattallion.number > (this.aiBattallion.number*1.5)*/ :
-//
-//         break;
-//       case 3 /*this.playerBattallion.number = (this.aiBattallion.number*1.5)*/ :
-//
-//         break;
-//     }
-//     break;
-//   case 7 /*cavaliers vs soldiers*/ :
-//     switch () {
-//       case 1 /*this.playerBattallion.number < this.aiBattallion.number*/ :
-//
-//         break;
-//       case 2 /*this.playerBattallion.number > this.aiBattallion.number*/ :
-//
-//         break;
-//       case 3 /*this.playerBattallion.number = this.aiBattallion.number*/ :
-//
-//         break;
-//     }
-//
-//     break;
-//   case 8 /*cavaliers vs archers*/ :
-//     switch () {
-//       case 1 /*(this.playerBattallion.number*1.5) < this.aiBattallion.number*/ :
-//
-//         break;
-//       case 2 /*(this.playerBattallion.number*1.5) > this.aiBattallion.number*/ :
-//
-//         break;
-//       case 3 /*(this.playerBattallion.number*1.5) = this.aiBattallion.number*/ :
-//
-//         break;
-//     }
-//     break;
-//   case 9 /*cavaliers vs cavaliers*/ :
-//     switch () {
-//       case 1 /*this.playerBattallion.number < this.aiBattallion.number*/ :
-//
-//         break;
-//       case 2 /*this.playerBattallion.number < this.aiBattallion.number*/ :
-//
-//         break;
-//       case 3 /*this.playerBattallion.number < this.aiBattallion.number*/ :
-//
-//         break;
-//     }
-//
-//
-//     break;
-//
-// }
